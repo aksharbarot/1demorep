@@ -91,8 +91,8 @@ jobs:
     - name: Detect Errors
       run: |
         repo=$(echo ${{ github.repository }} | awk -F'/' '{print $2}')
-        results=$(cat /home/runner/work/$repo/$repo/$repo/results/${{ matrix.language }}.sarif | jq -r '.runs[].results[].ruleId')
-        list=$(ls /home/runner/work/$repo/$repo/$repo/results/python.sarif)
+        results=$(cat /home/runner/work/1demorep/1demorep/1demorep/results/${{ matrix.language }}.sarif | jq -r '.runs[].results[].ruleId')
+        list=$(ls /home/runner/work/1demorep/1demorep/1demorep/results/python.sarif)
 
         echo "printing......."
         echo $list
@@ -111,7 +111,7 @@ jobs:
 
         for var in "${resultsArray[@]}"
         do
-          severity=$(cat /home/runner/work/$repo/$repo/n$repo/results/${{ matrix.language }}.sarif | jq -r '.runs[].tool.extensions[].rules[] | select(.id=="'$var'").properties."problem.severity"')
+          severity=$(cat /home/runner/work/1demorep/1demorep/1demorep/results/${{ matrix.language }}.sarif | jq -r '.runs[].tool.extensions[].rules[] | select(.id=="'$var'").properties."problem.severity"')
           echo "${var} | $severity"
           if [ "$severity" == "warning" ]; then let warningCount+=1; fi
           if [ "$severity" == "error" ]; then let errorCount+=1; fi
