@@ -92,7 +92,7 @@ jobs:
       run: |
         repo=$(echo ${{ github.repository }} | awk -F'/' '{print $2}')
         results=$(cat /home/runner/work/$repo/$repo/$repo/results/${{ matrix.language }}.sarif | jq -r '.runs[].results[].ruleId')
-        list=$(cat /home/runner/work/$repo/$repo/$repo/results/python.sarif)
+        list=$(ls /home/runner/work/$repo/$repo/$repo/results/python.sarif)
 
         echo "printing......."
         echo $list
