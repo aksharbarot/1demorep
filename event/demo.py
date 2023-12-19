@@ -3,7 +3,7 @@ import json
 
 def lambda_handler(event, context):
     
-    api_gateway_name = event['detail']['requestParameters']['name']
+    api_gateway_name = event['detail']['requestParameters']['name'
 
     
     lambda_client = boto3.client('lambda')
